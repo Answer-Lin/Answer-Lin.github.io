@@ -8,7 +8,7 @@
 		$(document).ready(function () {
 			// Using a Promise object
 			liff.init({
-				liffId: '1607718325-8lN5k6oL' // Use own liffId
+				liffId: '1656239633-vpX4nlk6' // Use own liffId
 			})
 			.then(() => {
 				// Start to use liff's api
@@ -20,12 +20,33 @@
 				console.log('error', err);
 				});
 
+                setButtonHandler();
 			})
 			.catch((err) => {
 				// Error happens during initialization
 				console.log(err.code, err.message);
 			});
 		});
+
+        function setButtonHandler() {
+            let button = document.getElementById('button');
+            button.addEventListener('click', () => {
+                window.alert('clicked: sendMessages');
+                liff.sendMessages([
+                    {
+                    type: 'text',
+                    text: 'Hello, LIFF!',
+                    },
+                ])
+                .then(() => {
+                    alert('message sent');
+                    liff.closeWindow();
+                })
+                .catch(err => {
+                    window.alert('Error sending message: ' + err);
+                });
+            });
+        }
 
 	</script>
 </head>
