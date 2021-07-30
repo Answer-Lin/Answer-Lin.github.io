@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <title>LIFF測試</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Using a Promise object
+			liff.init({
+				liffId: '1607718325-8lN5k6oL' // Use own liffId
+			})
+			.then(() => {
+				// Start to use liff's api
+				liff.getProfile()
+				.then(profile => {
+					profile.displayName
+				})
+				.catch((err) => {
+				console.log('error', err);
+				});
+
+			})
+			.catch((err) => {
+				// Error happens during initialization
+				console.log(err.code, err.message);
+			});
+		});
+
+	</script>
+</head>
+	<body>
+		<form>
+			<p>妳/你喜歡哪一種類型的妝容?</p>
+				<div>
+					<input type="radio" id="1-1" name="drone" value="1-1" checked>
+					<label for="huey">甜美&氣質感</label>
+				</div>
+
+				<div>
+					<input type="radio" id="1-2" name="drone" value="1-2">
+					<label for="dewey">帶點煙燻眼妝</label>
+				</div>
+
+				<div>
+					<input type="radio" id="1-3" name="drone" value="1-3">
+					<label for="louie">特殊色系眼影</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="1-4" name="drone" value="1-4">
+					<label for="louie">接近素顏的自然感</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="1-5" name="drone" value="1-5">
+					<label for="louie">其他妝感</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="1-6" name="drone" value="1-6">
+					<label for="louie">不喜歡</label>
+				</div>
+				
+			<p>妳/你每天化妝嗎?</p>
+				<div>
+					<input type="radio" id="2-1" name="drone" value="2-1" checked>
+					<label for="huey">是，每天都要化妝</label>
+				</div>
+
+				<div>
+					<input type="radio" id="2-2" name="drone" value="2-2">
+					<label for="dewey">不，我偶爾化妝</label>
+				</div>
+
+				<div>
+					<input type="radio" id="2-3" name="drone" value="2-3">
+					<label for="louie">只有出席重要場合才化妝</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="2-4" name="drone" value="2-4">
+					<label for="louie">我平時都不化妝</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="2-5" name="drone" value="2-5">
+					<label for="louie">我不會化妝</label>
+				</div>
+			  <div>
+				<button type="submit">Submit</button>
+			  </div>
+		</form>
+  </body>
+</html>
