@@ -8,27 +8,9 @@
         liff.init({
             liffId: "1656239633-vpX4nlk6" // Use own liffId
         }).then(() => {
-            liff.getProfile().then(profile => {
-                const name = profile.displayName
-            }).catch((err) => {
-                    console.log('error', err);
-                });
-
-            }).catch((err) => {
+            liff.getProfile()
+        }).catch((err) => {
                 console.log('初始化失敗')
-            });
-
-            $(function() {
-                liff.init(function(data) {
-                initializeApp(data);
-                });
-
-                $("#ButtonGetProfile").click(function() {
-                liff.getProfile().then(profile => {
-                    $("#UserInfo").val(profile.displayName);
-                    alert("done");
-                });
-                });
             });
 	</script>
 </head>
@@ -36,10 +18,5 @@
         <h2>Hello World</h2>
         <h6>Test 2</h6>
         <p>Name: {{name}}</p>
-        <button class="liff_btn">Get user profile</button>
-        <label>user id:</label>
-        <input class="form-control" type="text" id="userid" /> <br />
-        <button class="btn btn-primary" id="ButtonGetProfile">Get Profile</button>
-        <input class="form-control" type="text" id="UserInfo" /><br />
     </body>
 </html>
