@@ -10,10 +10,12 @@
         }).then(() => {
             if (!liff.isLoggedIn()) {
                 alert("用戶未登入");
+                print("Faild")
                 liff.login();
             } 
             else {
                 alert("用戶已登入");
+                print("Success")
                 liff.getProfile().then(profile => {
                     const name = profile.displayName
                 })
@@ -29,6 +31,6 @@
 	<body>
         <h2>Hello World</h2>
         <h6>Test 1</h6>
-        <p>Name: {{profile.displayName}}</p>
+        <p>Name: {{name}}</p>
     </body>
 </html>
