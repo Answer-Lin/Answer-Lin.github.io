@@ -11,18 +11,20 @@
         .then(() => {
             // Start to use liff's api
             liff.getProfile().then(profile => {
-                const displayName = profile.displayName
-            })
+                if (!liff.isLoggedIn()) {
+                    alert("用戶未登入");
+                    liff.login();
+                } 
+                else {
+                    alert("用戶已登入");
+                    liff.getProfile().then(profile => {
+                            const name = profile.displayName
+                    })
+                })
             .catch((err) => {
                 console.log('error', err);
             });
 
-            liff.sendMessages([
-            {
-                type: 'text',
-                text: 'Hello, World!'
-            }
-            ])
             .then(() => {
                 console.log('message sent');
             })
