@@ -3,19 +3,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
     <title>Beautilife</title>
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 	<script>
         liff.init({
             liffId: "1656239633-vpX4nlk6" // Use own liffId
         }).then(() => {
             if (!liff.isLoggedIn()) {
                 alert("用戶未登入");
-                print("Faild")
+                print("123");
                 liff.login();
             } 
             else {
                 alert("用戶已登入");
-                print("Success")
+                print("321");
                 liff.getProfile().then(profile => {
                     const name = profile.displayName
                 })
