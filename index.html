@@ -4,58 +4,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
     <title>Beautilife</title>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script>
+        liff.init({
+            liffId: "1656239633-vpX4nlk6" // Use own liffId
+        }).then(() => {
+            // Start to use liff's api
+            liff.getProfile().then(profile => {
+               const name = profile.displayName;
+            }).catch((err) => {
+                console.log('error', err);
+            });
+        })
+        .catch((err) => {
+            // Error happens during initialization
+            console.log(err.code, err.message);
+        });
+	</script>
 </head>
 	<body>
         <h2>Hello World</h2>
-        <h6>Test 2</h6>
-        <p>{{files}}</p>
-        <button id="button">send test message</button>
-        <script>
-            function initializeLiff(myLiffId) {
-            liff
-                .init({
-                liffId: "1656239633-vpX4nlk6",
-                })
-                .then(() => {
-                setButtonHandler();
-                })
-                .catch(err => {
-                alert(`error: ${JSON.stringify(err)}`);
-                });
-            }
-
-            function setButtonHandler() {
-            let button = document.getElementById('button');
-            button.addEventListener('click', () => {
-                window.alert('clicked: sendMessages');
-                liff
-                .sendMessages([
-                    {
-                    type: 'text',
-                    text: 'Hello, LIFF!',
-                    },
-                ])
-                .then(() => {
-                    alert('message sent');
-                    liff.closeWindow();
-                })
-                .catch(err => {
-                    window.alert('Error sending message: ' + err);
-                });
-            });
-            }
-
-            document.addEventListener('DOMContentLoaded', () => {
-            fetch(`/send-id`)
-                .then(reqResponse => reqResponse.json())
-                .then(jsonResponse => {
-                let myLiffId = jsonResponse.id;
-                initializeLiff(myLiffId);
-                })
-                .catch(err => {
-                alert(`error: ${JSON.stringify(err)}`);
-                });
-            });
-        </script>
+        <h6>Test 3</h6>
+        <p>{{name}}</p>
+        
     </body>
 </html>
