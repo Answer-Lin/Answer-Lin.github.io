@@ -8,22 +8,9 @@
         liff.init({
             liffId: "1656239633-vpX4nlk6" // Use own liffId
         }).then(() => {
-            function getProfile() {
-                // 先確認使用者是登入狀態
-                if(isLoggedIn) {
-                return liff.getProfile().then(profile => profile);
-                }
-            }
-            const btnProfile = document.getElementById('profile');
-            btnProfile.addEventListener('click', () => {
-                // 先確認使用者是登入狀態
-                if(isLoggedIn) {
-                liff.getProfile().then(profile => {
-                    const outputContent = document.getElementById('result-info');
-                    outputContent.value = `${JSON.stringify(profile)}`
-                })
-                }
-            });
+            liff.getProfile().then(function(user) {
+                console.log(user)
+            })
         }).catch((err) => {
                 console.log('初始化失敗')
             });
@@ -33,7 +20,6 @@
         <h2>Hello World</h2>
         <h6>Test 2</h6>
         <p>{{files}}</p>
-        <button id="profile">取得使用者公開資料</button>
-        <textarea class="u-full-width" id="result-info" placeholder="結果會顯示在這"></textarea>
+        <textarea class="u-full-width" id="user" placeholder="結果會顯示在這"></textarea>
     </body>
 </html>
