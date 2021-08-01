@@ -15,7 +15,7 @@ liff.init({
         let message = document.getElementById('message').value;
         liff.sendMessages([
           {
-            type: 'radio',
+            type: 'text',
             text: message
           },
         ]).then(() => {
