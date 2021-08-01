@@ -8,6 +8,19 @@ liff.init({
     }).catch(err => {
         // if an error occurs
     });
+
+    //Liff SendMessage
+    const btnMessage = document.getElementById('sendMessage');
+        btnMessage.addEventListener('click', () => {
+        let message = document.getElementById('message').value;
+        liff.sendMessages([
+          {
+            type: 'text',
+            text: message
+          }
+        ]).then(res => window.alert(res.status))
+          .catch(error => window.alert(error));
+      });
 }).catch((err) => {
     // Error happens during initialization
 });
