@@ -11,16 +11,20 @@ liff.init({
 
     //Liff SendMessage
     const btnMessage = document.getElementById('sendMessage');
-        btnMessage.addEventListener('click', () => {
+    btnMessage.addEventListener('click', () => {
         let message = document.getElementById('message').value;
         liff.sendMessages([
           {
             type: 'text',
             text: message
-          }
+          },
         ]).then(() => {
             liff.closeWindow();
+        }).catch((err) => {
+            //Error message
         });
-}).catch((err) => {
-    // Error happens during initialization
-});
+    
+    }).catch((err) => {
+        // Error happens during initialization
+    });
+})
