@@ -18,9 +18,9 @@ liff.init({
             type: 'text',
             text: message
           }
-        ]).then(res => window.alert(res.status))
-          .catch(error => window.alert(error));
-      });
+        ]).then(() => {
+            liff.closeWindow();
+        });
 }).catch((err) => {
     // Error happens during initialization
 });
