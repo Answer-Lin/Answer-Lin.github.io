@@ -1,4 +1,4 @@
-const elDisplayName = document.getElementById('displayName')
+const elDisplayName = document.getElementById('displayName');
 
 liff.init({
     liffId: "1656239633-vpX4nlk6" // Use own liffId
