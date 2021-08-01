@@ -10,7 +10,7 @@ liff.init({
 
     //Get LIFF User Profile
     liff.getProfile().then(profile =>{
-        document.getElementById('displayName').textContent = profile.displayName;
+        document.getElementById('displayName').innerHTML = profile.displayName;
     }).catch(err => {
         // if an error occurs
     });
