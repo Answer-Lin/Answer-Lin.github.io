@@ -16,7 +16,7 @@ liff.init({
         liff.sendMessages([
           {
             type: 'text',
-            text: message
+            text: "收到你的喜好囉~"
           },
         ]).then(() => {
             liff.closeWindow();
